@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CodiShop APIs</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>CodiShop APIs</h1>
+    <div class="mt-3">
+        <a href="/brand" class="btn btn-primary">브랜드 추가</a>
+        <a href="/product" class="btn btn-primary">상품 추가</a>
+    </div>
+    <table id="product-table" class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>API</th>
+                <th>Parameter</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><a href="/detail/1">/api/codishop/category/lowest-prices</a></td>
+                <td>X</td>
+                <td>고객은 카테고리 별로 최저가격인 브랜드와 가격을 조회하고 총액이 얼마인지 확인할 수 있어야 합니다.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><a href="/detail/2">/api/codishop/brand/lowest-price</a></td>
+                <td>X</td>
+                <td>고객은 단일 브랜드로 전체 카테고리 상품을 구매할 경우 최저가격인 브랜드와 총액이 얼마인지 확인할 수 있어야 합니다.</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>/api/codishop/category/lowest-highest-price/{categoryName}</td>
+                <td>
+                    <label for="category">
+                        <select id="category" name="category" class="form-control" required></select>
+                    </label>
+                </td>
+                <td>고객은 특정 카테고리에서 최저가격 브랜드와 최고가격 브랜드를 확인하고 각 브랜드 상품의 가격을 확인할 수 있어야 합니다.</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "/api/codishop/category",
+                method: "GET",
+                success: function(data) {
+                    $("#category").append(new Option("카테고리명를 선택해주세요", ""));
+                    data.data.forEach(function(category) {
+                        $("#category").append(new Option(category.categoryName, category.categoryName));
+                    });
+                }
+            });
+        });
+
+        $("#category").change(function() {
+            let categoryName = $("#category").val();
+            if (categoryName === "") {
+                return;
+            }
+            window.location.href = "/detail/3?categoryName=" + categoryName;
+        });
+    </script>
+</div>
+</body>
+</html>

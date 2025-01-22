@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CodiShop APIs</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1 id="form-title" class="mt-5">API Result</h1>
+    <pre><code class=JsonResult></code></pre>
+    <script>
+        $(document).ready(function() {
+            let apiNo = window.location.pathname.split("/").pop();
+            let apiPath = "";
+            switch (apiNo) {
+                case "1":
+                    apiPath = "/api/codishop/category/lowest-prices";
+                    break;
+                case "2":
+                    apiPath = "/api/codishop/brand/lowest-price";
+                    break;
+                case "3":
+                    let categoryName = new URLSearchParams(window.location.search).get('categoryName');
+                    apiPath = "/api/codishop/category/lowest-highest-price/" + categoryName;
+                    break;
+            }
+
+            $.ajax({
+                url: apiPath,
+                method: "GET",
+                success: function(response) {
+                    $('.JsonResult').html(JSON.stringify(response.data, null, 2));
+                }
+            });
+        });
+    </script>
+</div>
+</body>
+</html>
