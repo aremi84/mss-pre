@@ -39,5 +39,6 @@ public class Product {
 
     @Column(name = "DELETE_YN", nullable = false)
     @Comment(value = "삭제여부")
+    @Builder.Default
     private boolean deleteYn = false;
 }
