@@ -8,7 +8,6 @@ import com.mss.pre.domain.product.entity.Product;
 import com.mss.pre.domain.product.repository.ProductRepository;
 import com.mss.pre.web.model.BrandInfo;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.collections4.MapUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -25,7 +24,7 @@ public class BrandService {
 
     /**
      * 모든 카테고리 상품을 구매할 때 최저가격에 판매하는 단일 브랜드와 카테고리의 상품가격, 총액을 조회한다.
-     * 1. 삭제되지 않은 모든 브랜드를 조회한다.
+     * 1. 모든 브랜드를 조회한다.
      * 2. 각 브랜드별로 삭제되지 않은 상품을 조회하고, 카테고리별 최저가 상품을 선정한다.
      * 3. 각 브랜드의 전체 카테고리 상품 합산가를 계산한다.
      * 4. 전체 상품 합산가가 가장 낮은 브랜드를 선정한다.
@@ -34,8 +33,8 @@ public class BrandService {
      */
     public LowestByBrandProductInfo getLowestProductInfoByBrand() {
 
-        // 1. 삭제되지 않은 브랜드 정보를 조회한다.
-        List<Brand> brandList = brandRepository.findAllByDeleteYnFalse();
+        // 1. 모든 브랜드 정보를 조회한다.
+        List<Brand> brandList = brandRepository.findAll();
         if (CollectionUtils.isEmpty(brandList)) {
             return null;
         }

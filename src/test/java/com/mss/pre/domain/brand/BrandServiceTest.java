@@ -34,7 +34,7 @@ class BrandServiceTest {
 
     @Test
     void 등록된_브랜드가_없을_때_최저가_상품_정보를_조회한다() {
-        when(brandRepository.findAllByDeleteYnFalse()).thenReturn(Collections.emptyList());
+        when(brandRepository.findAll()).thenReturn(Collections.emptyList());
 
         LowestByBrandProductInfo result = brandService.getLowestProductInfoByBrand();
 
@@ -57,7 +57,7 @@ class BrandServiceTest {
         List<Brand> brandList = Collections.singletonList(brand);
         List<Product> productList = Collections.singletonList(product);
 
-        when(brandRepository.findAllByDeleteYnFalse()).thenReturn(brandList);
+        when(brandRepository.findAll()).thenReturn(brandList);
         when(productRepository.findByBrandAndDeleteYnFalse(brand)).thenReturn(productList);
 
         LowestByBrandProductInfo result = brandService.getLowestProductInfoByBrand();
@@ -91,7 +91,7 @@ class BrandServiceTest {
         List<Brand> brandList = Collections.singletonList(brand);
         List<Product> productList = Arrays.asList(expensiveProduct, cheapProduct);
 
-        when(brandRepository.findAllByDeleteYnFalse()).thenReturn(brandList);
+        when(brandRepository.findAll()).thenReturn(brandList);
         when(productRepository.findByBrandAndDeleteYnFalse(brand)).thenReturn(productList);
 
         LowestByBrandProductInfo result = brandService.getLowestProductInfoByBrand();
