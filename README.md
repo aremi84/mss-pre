@@ -41,7 +41,7 @@
 ```
 
 ## ERD
-![erd](https://private-user-images.githubusercontent.com/12078647/405598671-acfa7fb6-a140-4e30-88d5-dd8bf9df3712.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzgxNTA1MTIsIm5iZiI6MTczODE1MDIxMiwicGF0aCI6Ii8xMjA3ODY0Ny80MDU1OTg2NzEtYWNmYTdmYjYtYTE0MC00ZTMwLTg4ZDUtZGQ4YmY5ZGYzNzEyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTI5VDExMzAxMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTNmMTBjZjdlYTM5ZWMzNGE5Y2RjNGMzOWI3M2M2NjM5OTFjNjU1NmFmZDhkNDdkYmMwOTE1YTUxZDdjMTg4MTUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.teXnSYa9SFLvZ6BjEF7m6jLtUVok5-_c5yI4g7bypy8)
+![erd](https://github.com/user-attachments/assets/acfa7fb6-a140-4e30-88d5-dd8bf9df3712)
 - 하나의 상품은 반드시 하나의 브랜드와 카테고리를 가진다.
 - 브랜드나 카테고리가 삭제되어도 연관된 상품은 삭제되지 않는다.
 - 순수한 상품 정보만 제공해야 할 경우 삭제된 브랜드와 카테고리에 대한 처리가 필요하다.(빈 값 또는 default 정보를 제공)
@@ -96,7 +96,7 @@
 - ApplicationEventPublisher를 사용하여 이벤트를 발행하고, ApplicationListener를 구현한 AggregateEventListener에서 이벤트를 수신하여 처리한다.
 
 ## 프론트 페이지
-![front](https://private-user-images.githubusercontent.com/12078647/405598670-b4733943-7cce-468c-aaf7-2917170c1bd8.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzgxNTA1MTIsIm5iZiI6MTczODE1MDIxMiwicGF0aCI6Ii8xMjA3ODY0Ny80MDU1OTg2NzAtYjQ3MzM5NDMtN2NjZS00NjhjLWFhZjctMjkxNzE3MGMxYmQ4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTI5VDExMzAxMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTE5Njg5MDMxZDIyMGM0ZDc4ODljNDgxYTFhYzFkMDJmYzcwYjJiNTUyYTEzYTZhNjk0YjI3ZDFiZTZmNDhkZjUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.Fk8m-y8yhBO3cOoWiDp32bgMb5viKEVofradeFMgVIw)
+![front](https://github.com/user-attachments/assets/b4733943-7cce-468c-aaf7-2917170c1bd8)
 - http://localhost:8080 접속하여 확인 가능
 - 구현된 API 호출, 브랜드 및 상품 추가 기능을 지원함
 
